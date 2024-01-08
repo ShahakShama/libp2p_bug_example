@@ -63,7 +63,7 @@ impl request_response::Codec for Codec {
     {
         let mut buffer = [0u8; 1024];
         for _ in 0..self.message_size_in_kilobyte {
-            io.read(&mut buffer).await?;
+            io.read_exact(&mut buffer).await?;
         }
         Ok(())
     }
@@ -91,7 +91,7 @@ impl request_response::Codec for Codec {
     {
         let buffer = [1u8; 1024];
         for _ in 0..self.message_size_in_kilobyte {
-            io.write(&buffer).await?;
+            io.write_all(&buffer).await?;
         }
         Ok(())
     }
