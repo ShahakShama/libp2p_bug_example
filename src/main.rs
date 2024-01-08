@@ -106,8 +106,7 @@ async fn main() {
     let key_pair = Keypair::generate_ed25519();
     let mut swarm = SwarmBuilder::with_existing_identity(key_pair)
         .with_tokio()
-        .with_tcp(Default::default(), noise::Config::new, yamux::Config::default)
-        .expect("Error while building the swarm")
+        .with_quic()
         .with_behaviour(|_| {
             request_response::Behaviour::with_codec(
                 Codec { message_size_in_kilobyte: args.message_size_in_kilobyte },

@@ -9,5 +9,5 @@ edition = "2021"
 async-trait = "0.1.56"
 clap = { version = "4.3.10" , features = ["derive"] }
 futures = "0.3.21"
-libp2p = { version = "0.53.2", features = ["noise", "tcp", "tokio", "yamux", "request-response"] }
+libp2p = { version = "0.53.2", features = ["noise", "quic", "tokio", "yamux", "request-response"] }
 tokio = { version = "1.18.2", features = ["full", "sync"] }
